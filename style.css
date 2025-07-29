@@ -61,12 +61,15 @@
       .hero-top-line {
         display: flex;
         align-items: baseline;
+        flex-direction: column;
+        align-items: center;
         gap: 15px;
         flex-wrap: wrap;
       }
     
       .hero-top-line .small-heading {
         font-family: 'Mulish', sans-serif;
+        
         font-size: 18px;
         font-weight: 400;
         color: #cccccc;
@@ -92,7 +95,7 @@
         line-height: 1.6;
         color: #cccccc;
         margin-bottom: 30px;
-        max-width: 600px;
+        max-width: 800px;
       }
     
       .hero-button {
@@ -144,67 +147,136 @@
   }
   
 /* category section */
-
 .category-section {
     text-align: center;
-    padding: 30px 20px; 
-    overflow-x: auto;
+    padding: 60px 20px;
+    background-color: #f5f5f5;
+    border-radius: 16px;
+    margin: 60px 20px;
   }
   
-    .category-section h2 {
-      font-size: 36px;
-      margin-bottom: 40px;
-      
-    }
+  .category-section h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
   
-    .category-grid {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 30px;
-      overflow-x: auto;
-      padding: 20px 20px 10px 20px;
-      scroll-snap-type: x mandatory;
-      scroll-padding-left: 20px;
-    }
+  .category-description {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   
+  .category-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 10px 0 10px 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .category-item {
+    position: relative;
+    flex: 0 0 calc(25% - 30px); /* 4 na řádku */
+    min-width: 220px;
+    max-width: 260px;
+    aspect-ratio: 3 / 4;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background: #fff;
+    scroll-snap-align: start;
+  }
+  
+  .category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  }
+  
+  .category-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .category-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease;
+  }
+  
+  .category-item:hover .category-label {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  /* RESPONSIVE */
+  @media screen and (max-width: 1024px) {
     .category-item {
-      
-      position: relative;
-      width: 220px;
-      aspect-ratio: 3 / 4;
-      flex-shrink: 0;
-      border-radius: 16px;
-      overflow: hidden;
-      text-decoration: none;
-      transition: transform 0.3s ease;
+      width: calc(33.333% - 20px); /* 3 položky */
     }
+  }
   
-    .category-item:hover {
-      transform: scale(1.01);
+  @media screen and (max-width: 768px) {
+    .category-item {
+      width: calc(50% - 15px); /* 2 položky */
     }
+  }
   
-    .category-item img {
+  @media screen and (max-width: 480px) {
+    .category-item {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
     }
+  }
+  /* šipky */
+  .category-scroll-wrapper {
+    position: relative;
+  }
   
-    .category-label {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 24px;
-      font-weight: 500;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 24px;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: background 0.3s ease;
+  }
+  
+  .scroll-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  .scroll-btn.left {
+    left: -10px;
+  }
+  
+  .scroll-btn.right {
+    right: -10px;
+  }
+  
   
     /* virtual tour */
   .virtual-tour-grid {

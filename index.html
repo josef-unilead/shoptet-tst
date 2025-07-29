@@ -27,31 +27,44 @@
         
 <div class="container">
     <div id="kategorie">
-      <section class="category-section">
-        <h2>Nakupujte podle kategorie</h2>
-        <div class="category-grid">
-          <a href="https://www.udesign.cz/loznice/" class="category-item">
-            <img src="https://cdn.myshoptet.com/usr/www.udesign.cz/user/shop/big/5106_postel-samoa-quiet.png?617a5d95" alt="Ložnice">
-            <div class="category-label">Ložnice</div>
-          </a>
-          <a href="https://www.udesign.cz/kuchyne/" class="category-item">
-            <img src="https://cdn.myshoptet.com/usr/www.udesign.cz/user/shop/big/3432_cattelan-italia-jidelni-stul-butterfly-0.jpg?617a5d95" alt="Kuchyně">
-            <div class="category-label">Kuchyně</div>
-          </a>
-          <a href="https://www.udesign.cz/obyvaci-pokoje/" class="category-item">
-            <img src="https://cdn.myshoptet.com/usr/www.udesign.cz/user/shop/big/5070_pohovka-samoa-living-minimal.png?617a5d95" alt="Obývací pokoje">
-            <div class="category-label">Obývací pokoje</div>
-          </a>
-          <a href="https://www.udesign.cz/zahrada/" class="category-item">
-            <img src="https://cdn.myshoptet.com/usr/www.udesign.cz/user/shop/big/5796_riverside-2.png?617a5d95" alt="Zahrada">
-            <div class="category-label">Zahrada</div>
-          </a>
-          <a href="https://www.udesign.cz/osvetleni/" class="category-item">
-            <img src="https://cdn.myshoptet.com/usr/www.udesign.cz/user/shop/big/10346_6865-1-svitidlo-z-kouroveho-skla.png?686d04ae" alt="Osvětlení">
-            <div class="category-label">Osvětlení</div>
-          </a>
-        </div>
-      </section>
+        <section class="category-section" id="kategorie">
+            <h2>Nakupujte podle kategorie</h2>
+            <p class="category-description">
+              Objevujte náš široký sortiment pro každý kout vašeho domova – od ložnic až po zahradu.
+            </p>
+            <div class="category-scroll-wrapper">
+                <button class="scroll-btn left" aria-label="Doleva">&#10094;</button>
+                
+                <div class="category-grid">
+                    <a href="https://www.udesign.cz/loznice/" class="category-item">
+                      <img src="https://cdn.myshoptet.com/usr/www.udesign.cz/user/shop/big/5106_postel-samoa-quiet.png?617a5d95" alt="Ložnice">
+                      <div class="category-label">Ložnice</div>
+                    </a>
+                    <a href="https://www.udesign.cz/kuchyne/" class="category-item">
+                      <img src="https://cdn.myshoptet.com/usr/www.udesign.cz/user/shop/big/3432_cattelan-italia-jidelni-stul-butterfly-0.jpg?617a5d95" alt="Kuchyně">
+                      <div class="category-label">Kuchyně</div>
+                    </a>
+                    <a href="https://www.udesign.cz/obyvaci-pokoje/" class="category-item">
+                      <img src="https://cdn.myshoptet.com/usr/www.udesign.cz/user/shop/big/5070_pohovka-samoa-living-minimal.png?617a5d95" alt="Obývací pokoje">
+                      <div class="category-label">Obývací pokoje</div>
+                    </a>
+                    <a href="https://www.udesign.cz/zahrada/" class="category-item">
+                      <img src="https://cdn.myshoptet.com/usr/www.udesign.cz/user/shop/big/5796_riverside-2.png?617a5d95" alt="Zahrada">
+                      <div class="category-label">Zahrada</div>
+                    </a>
+                    <a href="https://www.udesign.cz/osvetleni/" class="category-item">
+                      <img src="https://cdn.myshoptet.com/usr/www.udesign.cz/user/shop/big/10346_6865-1-svitidlo-z-kouroveho-skla.png?686d04ae" alt="Osvětlení">
+                      <div class="category-label">Osvětlení</div>
+                    </a>
+                  </div>
+                
+                <button class="scroll-btn right" aria-label="Doprava">&#10095;</button>
+              </div>
+
+           
+          </section>
+          
+          
     </div>
 
     <div id="virtual-tour">
@@ -70,6 +83,19 @@
       </section>
     </div>
   </div>
+  
+  <script>
+    const grid = document.querySelector('.category-grid');
+    const scrollAmount = 280; // přibližná šířka jedné položky + gap
+  
+    document.querySelector('.scroll-btn.left').addEventListener('click', () => {
+      grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+  
+    document.querySelector('.scroll-btn.right').addEventListener('click', () => {
+      grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+  </script>
   
 </body>
 
